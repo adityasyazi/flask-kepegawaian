@@ -19,13 +19,14 @@ app.secret_key = "rahasia"
 #    database="kepegawaian"
 # )
 
-db = mysql.connector.connect(
-    host=os.getenv("MYSQLHOST"),
-    user=os.getenv("MYSQLUSER"),
-    password=os.getenv("MYSQLPASSWORD"),
-    database=os.getenv("MYSQLDATABASE"),
-    port=3306
-)
+def get_db():
+    return mysql.connector.connect(
+        host=os.environ.get("MYSQLHOST"),
+        user=os.environ.get("MYSQLUSER"),
+        password=os.environ.get("MYSQLPASSWORD"),
+        database=os.environ.get("MYSQLDATABASE"),
+        port=3306
+    )
 
 # =====================
 # UPLOAD CONFIG

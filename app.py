@@ -59,4 +59,4 @@ def dashboard():
     cursor.close()
     db.close()
 
-    return data
+    return str(data)

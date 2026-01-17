@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web Python Sederhana</title>
+</head>
+<body>
+    <h1>Halo, Web Python!</h1>
+
+    <button onclick="loadData()">Ambil Data</button>
+
+    <pre id="result"></pre>
+
+    <script>
+        function loadData(){
+            fetch("/getdata")
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById("result").innerText =
+                JSON.stringify(data, null, 2);
+            });
+        }
+    </script>
+</body>
+</html>
